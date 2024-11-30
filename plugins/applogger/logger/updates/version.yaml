@@ -1,9 +1,3 @@
-v1.0.1: First version of Logger
-v1.0.2:
+v1.0.1:
+  - First version of Logger
   - create_logs_table.php
-
-# REVIEW - Tip - Tu by len bolo fajn zjednotiť verzie, momentálne máš v1.0.1 kde je napísané že je to prvá verzia, ale migrácia je priradená až do verzie v1.0.2
-# REVIEW - Tip - Nedáva zmysel povedať že v1.0.1 je prvá verzia aj keď prvá migrácia pre tento plugin prebehne až v tej ďalšej. Zjednotiť to môžeš takýmto formátom
-# v1.0.1:
-#  - First version of Logger
-#  - create_logs_table.php
