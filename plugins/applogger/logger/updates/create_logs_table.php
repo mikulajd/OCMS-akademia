@@ -22,7 +22,7 @@ return new class extends Migration
             $table->id();
             $table->timestamp('arrived_at');
             $table->boolean('is_late');
-            $table->string('name', length: 50);
+            $table->string('name', length: 50); // REVIEW - Tip - To "length: " tu môže ale nemusí byť
         });
     }
 
