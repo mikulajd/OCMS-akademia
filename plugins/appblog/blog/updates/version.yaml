@@ -1,3 +1,5 @@
 v1.0.1: First version of Blog
 v1.0.2:
     - create_blogs_table.php
+v1.0.3:
+    - 2024-12-02-update_blogs_table.php

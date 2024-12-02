@@ -1,8 +1,19 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-    id:
-        label: ID
-        disabled: true
+    blog_title:
+        label: Title
+        span: left
+    blog_author:
+        label: Author
+        span: right
+    published_at:
+        label: Published
+        span: left
+        type: datepicker
+    is_premium:
+        label: Premium
+        span: right
+        type: switch
+    blog_content:
+        label: Text
+        span: full
+        type: richeditor

@@ -1,26 +1,23 @@
 <?php
 
-namespace AppBlog\Blog\Models;
+namespace AppUser\User\Models;
 
 use Model;
 
 /**
- * Blog Model
+ * User Model
  *
  * @link https://docs.octobercms.com/3.x/extend/system/models.html
  */
-class Blog extends Model
+class User extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-
-
-    public $fillable = ['blog_author', 'blog_title', 'blog_content', 'is_premium', 'published_at'];
-    public $timestamps = false;
+    public $fillable = ['user_name', 'password'];
 
     /**
      * @var string table name
      */
-    public $table = 'appblog_blog_blogs';
+    public $table = 'appuser_user_users';
 
     /**
      * @var array rules for validation

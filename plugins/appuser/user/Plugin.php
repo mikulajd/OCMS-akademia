@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBlog\Blog;
+namespace AppUser\User;
 
 use Backend;
 use System\Classes\PluginBase;
@@ -18,12 +18,13 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name' => 'Blog',
+            'name' => 'User',
             'description' => 'No description provided yet...',
-            'author' => 'AppBlog',
+            'author' => 'AppUser',
             'icon' => 'icon-leaf'
         ];
     }
+
 
 
     /**
@@ -31,13 +32,14 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
+
         return [
-            'blog' => [
-                'label'       => 'Blog Management',
-                'url'         => \Backend::url('appblog/blog/blogs'),
-                'icon'        => 'icon-pencil',
-                'permissions' => ['appblog.blog.manage_blogs'],
-                'order'       => 500,
+            'user' => [
+                'label' => 'User',
+                'url' => Backend::url('appuser/user/mycontroller'),
+                'icon' => 'icon-leaf',
+                'permissions' => ['appuser.user.*'],
+                'order' => 500,
             ],
         ];
     }

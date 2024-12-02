@@ -1,14 +1,12 @@
 <?php
 
-use AppBlog\Blog\Models\Blog;
+use AppBlog\Blog\Http\Controllers\BlogsController;
 
-Route::get('/blogs', function () {
-    return Blog::all();
+Route::group([
+    'prefix' => 'api/v1'
+], function () {
+    Route::get('blogs', [BlogsController::class, 'index']);
+    Route::get('blogs/{id}', [BlogsController::class, 'show']);
 });
 
-Route::post('/blog', function () {
-    $data = post();
-    $blog = new Blog();
-    $blog->fill($data);
-    $blog->save();
-});
+Route::post('/blog', [BlogsController::class, 'addBlog']);

@@ -3,6 +3,16 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+    blog_title:
+        label: Title
+        searchable: true
+    blog_author:
+        label: Author
+        searchable: true
+    published_at:
+        label: Published at
+        searchable: true
+    is_premium:
+        label: Premium
+        sortable: false
         searchable: true
