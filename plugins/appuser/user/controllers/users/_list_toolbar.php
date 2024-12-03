@@ -1,9 +1,9 @@
 <div data-control="toolbar loader-container">
     <a
-        href="<?= Backend::url('appuser/user/usercontroller/create') ?>"
+        href="<?= Backend::url('appuser/user/users/create') ?>"
         class="btn btn-primary">
         <i class="icon-plus"></i>
-        <?= __("New :name", ['name' => 'User Controller']) ?>
+        <?= __("New :name", ['name' => 'User']) ?>
     </a>
 
     <div class="toolbar-divider"></div>

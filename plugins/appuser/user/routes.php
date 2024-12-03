@@ -6,4 +6,5 @@ Route::group(['prefix' => 'auth'], function () {
 
     Route::post('/signUp', [UsersController::class, 'signUp']);
     Route::post('/signIn', [UsersController::class, 'signIn']);
+    Route::post('/changePassword', [UsersController::class, 'changePassword']);
 });

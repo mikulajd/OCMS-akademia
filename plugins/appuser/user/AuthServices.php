@@ -12,7 +12,7 @@ class AuthServices
         $token = '';
 
         for ($i = 0; $i < 60; $i++) {
-            $token .= $chars[rand(0, 35)];
+            $token .= $chars[rand(0, strlen($chars) - 1)];
         }
         return $token;
     }

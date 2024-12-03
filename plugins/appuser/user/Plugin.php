@@ -35,9 +35,9 @@ class Plugin extends PluginBase
 
         return [
             'user' => [
-                'label' => 'User',
-                'url' => Backend::url('appuser/user/mycontroller'),
-                'icon' => 'icon-leaf',
+                'label' => 'Users',
+                'url' => Backend::url('appuser/user/users'),
+                'icon' => 'icon-users',
                 'permissions' => ['appuser.user.*'],
                 'order' => 500,
             ],

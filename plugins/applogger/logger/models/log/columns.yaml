@@ -6,3 +6,15 @@ columns:
     id:
         label: ID
         searchable: true
+    arrived_at:
+        label: Čas príchodu
+        type: datetime
+        format: d. F Y - H:i:s
+    is_late:
+        label: Meškanie
+        type: switch
+    user:
+        label: Meno študenta
+        type: text
+        relation: user
+        select: user_name

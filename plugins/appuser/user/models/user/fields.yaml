@@ -6,3 +6,8 @@ fields:
     id:
         label: ID
         disabled: true
+    user_name:
+        label: Meno
+    password:
+        label: Password
+        type: password

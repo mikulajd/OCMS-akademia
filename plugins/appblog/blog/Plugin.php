@@ -29,16 +29,16 @@ class Plugin extends PluginBase
     /**
      * registerNavigation used by the backend.
      */
-    public function registerNavigation()
-    {
-        return [
-            'blog' => [
-                'label'       => 'Blog Management',
-                'url'         => \Backend::url('appblog/blog/blogs'),
-                'icon'        => 'icon-pencil',
-                'permissions' => ['appblog.blog.manage_blogs'],
-                'order'       => 500,
-            ],
-        ];
-    }
+    // public function registerNavigation()
+    // {
+    //     return [
+    //         'blog' => [
+    //             'label'       => 'Blog Management',
+    //             'url'         => \Backend::url('appblog/blog/blogs'),
+    //             'icon'        => 'icon-pencil',
+    //             'permissions' => ['appblog.blog.manage_blogs'],
+    //             'order'       => 500,
+    //         ],
+    //     ];
+    // }
 }

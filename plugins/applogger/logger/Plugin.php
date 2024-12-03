@@ -30,4 +30,16 @@ class Plugin extends PluginBase
             'icon' => 'icon-leaf'
         ];
     }
+    public function registerNavigation()
+    {
+        return [
+            'log' => [
+                'label'       => 'Logs',
+                'url'         => \Backend::url('applogger/logger/logs'),
+                'icon'        => 'icon-components',
+                'permissions' => ['applogger.logger.*'],
+                'order'       => 600,
+            ],
+        ];
+    }
 }

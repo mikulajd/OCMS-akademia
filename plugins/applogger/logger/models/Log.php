@@ -16,6 +16,9 @@ class Log extends Model
     use \October\Rain\Database\Traits\Validation;
     public $fillable = ['arrived_at', 'user_id', 'is_late'];
     public $timestamps = false;
+    //!!Definovanie relationship cez variables nie funkcie!!
+    public $belongsTo = ['user' => ['AppUser\User\Models\User']];
+
     /**
      * @var string table name
      */
@@ -26,8 +29,9 @@ class Log extends Model
      */
     public $rules = [];
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    //!!DO BUDUCNOSTI !!!  TOTO JE VRAJ SKOR PRE LARAVEL
+    //     public function user(): BelongsTo
+    //     {
+    //         return $this->belongsTo(User::class);
+    //     }
 }

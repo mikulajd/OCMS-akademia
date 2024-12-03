@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: User Controller
+name: Log
 
 # Model Form Field configuration
-form: $/appuser/user/models/usercontroller/fields.yaml
+form: $/applogger/logger/models/log/fields.yaml
 
 # Model Class name
-modelClass: AppUser\User\Models\UserController
+modelClass: AppLogger\Logger\Models\Log
 
 # Default redirect location
-defaultRedirect: appuser/user/usercontroller
+defaultRedirect: applogger/logger/logs
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: appuser/user/usercontroller/update/:id
-    redirectClose: appuser/user/usercontroller
+    redirect: applogger/logger/logs/update/:id
+    redirectClose: applogger/logger/logs
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: appuser/user/usercontroller
-    redirectClose: appuser/user/usercontroller
+    redirect: applogger/logger/logs
+    redirectClose: applogger/logger/logs
 
 # Preview page
 preview:
