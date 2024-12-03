@@ -9,27 +9,25 @@ class LoggerController
 {
     public function getAllLogs()
     {
-        return Log::all();
+        $user_id = input('user_id');
+        return Log::where('user_id', $user_id)->get();
     }
-    public function getLogsByName($name)
-    {
-        return Log::where('name', $name)->get();
-    }
+
     public function getSortedLogs()
     {
         $column = input('column', 'id');
         $sortType = input('sortType', 'asc');
-        return Log::orderBy($column, $sortType)->get();
+        $user_id = input('user_id');
+        return Log::where('user_id', $user_id)->orderBy($column, $sortType)->get();
     }
-    public function deleteLogs()
+    public function deleteLog($id)
     {
-        $column = input('column');
-        $value = input('value',);
-        if (!$column || !$value) {
-            return response()->json(['error' => 'Column and value are required'], 400);
+        $user_id = input('user_id');
+        $log = Log::where('id', $id)->first();
+        if ($log != null && $log->user_id != $user_id) {
+            return response('Unauthorized', 401);
         }
-
-        return Log::where($column, $value)->delete();
+        return response(Log::where('id', $id)->where('user_id', $user_id)->delete());
     }
     public function addLog()
     {

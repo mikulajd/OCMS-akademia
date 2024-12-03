@@ -11,9 +11,7 @@ Route::group(['middleware' => [AuthMiddleware::class]], function () {
 
         Route::get('/sort', [LoggerController::class, 'getSortedLogs']);
 
-        Route::get('/{name}', [LoggerController::class, 'getLogsByName']);
-
-        Route::delete('/delete',  [LoggerController::class, 'deleteLogs']);
+        Route::delete('/delete/{id}',  [LoggerController::class, 'deleteLog']);
     });
 
     Route::post('/log', [LoggerController::class, 'addLog']);
