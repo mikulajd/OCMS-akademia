@@ -2,6 +2,8 @@
 
 namespace AppUser\User\Models;
 
+use AppLogger\Logger\Models\Log;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Model;
 
 /**
@@ -13,6 +15,11 @@ class User extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     public $fillable = ['user_name', 'password'];
+
+    public function logs(): HasMany
+    {
+        return $this->hasMany(Log::class);
+    }
 
     /**
      * @var string table name

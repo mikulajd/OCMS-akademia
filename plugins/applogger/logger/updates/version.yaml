@@ -1,3 +1,6 @@
 v1.0.1:
   - First version of Logger
   - create_logs_table.php
+v1.0.2:
+  - Added relationship between user and Logger
+  - 2024-12-03-update_logs_table.php

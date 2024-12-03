@@ -2,6 +2,8 @@
 
 namespace AppLogger\Logger\Models;
 
+use AppUser\User\Models\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Model;
 
 /**
@@ -12,7 +14,7 @@ use Model;
 class Log extends Model
 {
     use \October\Rain\Database\Traits\Validation;
-    public $fillable = ['arrived_at', 'name', 'is_late'];
+    public $fillable = ['arrived_at', 'user_id', 'is_late'];
     public $timestamps = false;
     /**
      * @var string table name
@@ -23,4 +25,9 @@ class Log extends Model
      * @var array rules for validation
      */
     public $rules = [];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

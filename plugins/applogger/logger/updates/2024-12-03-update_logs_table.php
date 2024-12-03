@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBlog\Blog\Updates;
+namespace AppLogger\Logger\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
 /**
- * UpdateBlogsTable Migration
+ * UpdateLogsTable Migration
  *
  * @link https://docs.octobercms.com/3.x/extend/database/structure.html
  */
@@ -18,9 +18,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('appblog_blog_blogs', function (Blueprint $table) {
-            $table->dropTimestamps();
-            $table->timestamp('published_at')->nullable();
+        Schema::table('applogger_logger_logs', function (Blueprint $table) {
+            $table->dropColumn('name');
+            $table->foreignId('user_id')->references('id')->on('appuser_user_users')->onDelete('cascade');
         });
     }
 
@@ -30,8 +30,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('appblog_blog_blogs', function (Blueprint $table) {
-            $table->timestamps();
-            $table->dropColumn('published_at');
+            $table->string('name');
+            $table->dropColumn('user_id');
         });
     }
 };

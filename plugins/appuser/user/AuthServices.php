@@ -2,11 +2,11 @@
 
 namespace AppUser\User;
 
-class Helpers
+class AuthServices
 
 {
 
-    static function generateToken(): string
+    public static function generateToken(): string
     {
         $chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvxyz";
         $token = '';
@@ -17,7 +17,7 @@ class Helpers
         return $token;
     }
 
-    static function generateResponse(bool $success, string $message, $token)
+    public   static function generateAuthResponse(bool $success, string $message, $token)
     {
         return response([
             "success" => $success,
