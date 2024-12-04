@@ -17,6 +17,7 @@ class Log extends Model
     public $fillable = ['arrived_at', 'user_id', 'is_late'];
     public $timestamps = false;
     //!!Definovanie relationship cez variables nie funkcie!!
+    // REVIEW - Ano, tento spôsob cez variable je ten "správny" :DD
     public $belongsTo = ['user' => ['AppUser\User\Models\User']];
 
     /**
@@ -29,6 +30,7 @@ class Log extends Model
      */
     public $rules = [];
 
+    // REVIEW - Jo, toto v OCMS nepotrebuješ keďže sa to robí cez $hasOne, $hasMany, $belongsTo, $belongsToMany...
     //!!DO BUDUCNOSTI !!!  TOTO JE VRAJ SKOR PRE LARAVEL
     //     public function user(): BelongsTo
     //     {

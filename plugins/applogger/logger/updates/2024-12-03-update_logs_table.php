@@ -20,6 +20,7 @@ return new class extends Migration
     {
         Schema::table('applogger_logger_logs', function (Blueprint $table) {
             $table->dropColumn('name');
+            // REVIEW - Tip - Môžeš si pozrieť aj ->foreignIdFor, je to trochu elegantnejšie ako ->foreignId
             $table->foreignId('user_id')->references('id')->on('appuser_user_users')->onDelete('cascade');
         });
     }

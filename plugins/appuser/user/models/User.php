@@ -19,7 +19,7 @@ class User extends Model
 
     public $hasMany = [
         'logs' => [
-            'AppLogger\Logger\Models\Log',
+            'AppLogger\Logger\Models\Log', // REVIEW - Nikdy neimportuj classy ako string path, radšej to importni cez use ako to máš hore a tu to už použi: Log::class
             'key' => 'user_id', // Optional if 'user_id' is the default foreign key
         ],
     ];
@@ -37,6 +37,7 @@ class User extends Model
 
     public function beforeSave()
     {
+        // REVIEW - Tip - Heslo môžeš hashovať aj cez "hashable" attribute, pozri OCMS docs
         if ($this->isDirty('password')) {
             $this->password = Hash::make($this->password);
         }

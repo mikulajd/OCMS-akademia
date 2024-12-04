@@ -35,6 +35,6 @@ class LoggerController
         $log = new Log();
         $log->fill($data);
         $log->save();
-        return response()->json($log, 201);
+        return response()->json($log, 201); // REVIEW - Tip - V tomto prípade by tu stačilo aj "return $log"
     }
 }
