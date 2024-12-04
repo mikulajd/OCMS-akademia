@@ -14,7 +14,9 @@ use Hash;
 class User extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Hashable;
     public $fillable = ['user_name', 'password'];
+    protected $hashable = ['password'];
 
     public $hasMany = [
         'logs' => [
@@ -32,13 +34,4 @@ class User extends Model
      * @var array rules for validation
      */
     public $rules = [];
-
-
-    public function beforeSave()
-    {
-        // REVIEW - Tip - Heslo môžeš hashovať aj cez "hashable" attribute, pozri OCMS docs
-        if ($this->isDirty('password')) {
-            $this->password = Hash::make($this->password);
-        }
-    }
 }
