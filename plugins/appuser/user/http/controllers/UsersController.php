@@ -4,6 +4,7 @@ namespace AppUser\User\Http\Controllers;
 
 use AppUser\User\Models\User;
 use AppUser\User\AuthServices;
+use Exception;
 use Hash;
 
 class UsersController
@@ -15,21 +16,17 @@ class UsersController
         $password = post('password');
         $user = User::firstWhere('user_name', $userName);
         if ($user != null) {
-            return AuthServices::generateAuthResponse(false, "User with this name already exists", null);
+            throw new Exception("User with this name already exists", 401);
         }
-
-        // $hashedPw = Hash::make($password);
         $user = new User();
         $user->fill(input());
-        // $user->user_name = $userName;
         $token = AuthServices::generateToken();
         $user->token = $token;
-        // $user->password = $hashedPw;
         $success = $user->save();
         if (!$success) {
-            $token = null;
+            throw new Exception("Problem when creating new user", 401);
         }
-        return AuthServices::generateAuthResponse($success, "", $token);
+        return ['token' => $token];
     }
 
     public function signIn()
@@ -38,12 +35,12 @@ class UsersController
         $password = post('password');
         $user = User::firstWhere('user_name', $userName);
         if ($user == null) {
-            return AuthServices::generateAuthResponse(false, "User with this name does not exist", null);
+            throw new Exception("User with this name doesn't exist", 401);
         }
         if (!Hash::check($password, $user->password)) {
-            return AuthServices::generateAuthResponse(false, "Wrong password", null);
+            throw new Exception("Wrong password", 401);
         }
-        return AuthServices::generateAuthResponse(true, "", $user->token);
+        return ['token' => $user->token];
     }
 
     public function changePassword()
@@ -53,18 +50,17 @@ class UsersController
         $newPassword = post('newPassword');
         $user = User::firstWhere('user_name', $userName);
         if ($user == null) {
-            return AuthServices::generateAuthResponse(false, "User with this name does not exist", null);
+            throw new Exception("User with this name doesn't exist", 401);
         }
         if (!Hash::check($oldPassword, $user->password)) {
-            return AuthServices::generateAuthResponse(false, "Wrong password", null);
+            throw new Exception("Wrong password", 401);
         }
         $user->password = $newPassword;
         $success = $user->save();
         if ($success) {
-            $message = "Password successfully changed";
+            return ['message' => "Password successfully changed"];
         } else {
-            $message = "Error when changing password";
+            throw new Exception("Error when changing password", 401);
         }
-        return AuthServices::generateAuthResponse($success, $message, null);
     }
 }

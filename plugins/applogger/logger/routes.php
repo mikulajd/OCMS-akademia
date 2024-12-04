@@ -1,7 +1,7 @@
 <?php
 
 use AppLogger\Logger\Http\Controllers\LoggerController;
-use AppLogger\Logger\Middleware\AuthMiddleware;
+use AppUser\User\Http\Middleware\AuthMiddleware;
 
 Route::group(['middleware' => [AuthMiddleware::class]], function () {
 

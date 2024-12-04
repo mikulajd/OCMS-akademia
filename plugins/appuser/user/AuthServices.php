@@ -22,12 +22,12 @@ class AuthServices // REVIEW - Services zvyčajne dávame do plugin/classes/serv
     throw new Exception("Wrong Password", 401) - tu môžeš definovať message a status code
     2. ak vraciaš message / token, tak sa automaticky vie že je endpoint prešiel, čiže netreba success = true, inak povedané keď vrátiš message / token tak response má code 200
     Skús upraviť tvoj controller aby sa hodil exception vždy keď nastane chyba a inak vráť iba potrebné dáta ako string / object / ... */
-    public   static function generateAuthResponse(bool $success, string $message, $token)
-    {
-        return response([
-            "success" => $success,
-            "message" => $message,
-            "token" => $token,
-        ]);
-    }
+    // public   static function generateAuthResponse(bool $success, string $message, $token)
+    // {
+    //     return response([
+    //         "success" => $success,
+    //         "message" => $message,
+    //         "token" => $token,
+    //     ]);
+    // }
 }

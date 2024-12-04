@@ -3,7 +3,6 @@
 namespace AppUser\User\Models;
 
 use AppLogger\Logger\Models\Log;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Model;
 use Hash;
 
@@ -19,8 +18,8 @@ class User extends Model
 
     public $hasMany = [
         'logs' => [
-            'AppLogger\Logger\Models\Log', // REVIEW - Nikdy neimportuj classy ako string path, radšej to importni cez use ako to máš hore a tu to už použi: Log::class
-            'key' => 'user_id', // Optional if 'user_id' is the default foreign key
+            Log::class, // REVIEW - Nikdy neimportuj classy ako string path, radšej to importni cez use ako to máš hore a tu to už použi: Log::class
+            'key' => 'user_id',
         ],
     ];
 

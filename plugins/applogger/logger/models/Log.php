@@ -18,7 +18,7 @@ class Log extends Model
     public $timestamps = false;
     //!!Definovanie relationship cez variables nie funkcie!!
     // REVIEW - Ano, tento spôsob cez variable je ten "správny" :DD
-    public $belongsTo = ['user' => ['AppUser\User\Models\User']];
+    public $belongsTo = ['user' => [User::class]];
 
     /**
      * @var string table name

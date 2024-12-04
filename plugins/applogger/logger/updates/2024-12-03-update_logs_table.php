@@ -5,6 +5,7 @@ namespace AppLogger\Logger\Updates;
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
+use AppUser\User\Models\User;
 
 /**
  * UpdateLogsTable Migration
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->dropColumn('name');
             // REVIEW - Tip - Môžeš si pozrieť aj ->foreignIdFor, je to trochu elegantnejšie ako ->foreignId
             $table->foreignId('user_id')->references('id')->on('appuser_user_users')->onDelete('cascade');
+            //$table->foreignIdFor(User::class)->onDelete('cascade'); 
         });
     }
 
